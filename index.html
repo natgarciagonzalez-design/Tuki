@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>La Rosa Negra</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    background: linear-gradient(#000000, #1a0000);
+    color: #e6e6e6;
+    font-family: 'Cinzel', serif;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 40px;
+    border-bottom: 2px solid #660000;
+}
+
+header h1 {
+    font-size: 55px;
+    color: #b3003b;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+header h1:hover {
+    color: #ff1a4d;
+    text-shadow: 0 0 15px #ff1a4d;
+}
+
+/* MENÚ */
+#menu-toggle { display: none; }
+
+nav {
+    max-height: 0;
+    overflow: hidden;
+    background: #000;
+    text-align: center;
+    transition: max-height 0.5s ease;
+}
+
+#menu-toggle:checked + nav {
+    max-height: 200px;
+}
+
+nav a {
+    display: inline-block;
+    margin: 15px;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ff1a4d;
+    transform: scale(1.1);
+    text-shadow: 0 0 10px red;
+}
+
+/* SECCIONES */
+section {
+    padding: 50px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+h2 {
+    color: #ff1a4d;
+    border-bottom: 1px solid #660000;
+    padding-bottom: 10px;
+}
+
+/* GRID */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* TARJETAS */
+.menu-item {
+    background: #1a0000;
+    border: 1px solid #660000;
+    padding: 15px;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeUp 1s forwards;
+}
+
+/* DELAY PARA EFECTO ESCALONADO */
+.menu-item:nth-child(1) { animation-delay: 0.2s; }
+.menu-item:nth-child(2) { animation-delay: 0.4s; }
+.menu-item:nth-child(3) { animation-delay: 0.6s; }
+.menu-item:nth-child(4) { animation-delay: 0.8s; }
+
+/* HOVER */
+.menu-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255,0,0,0.4);
+}
+
+/* IMÁGENES */
+.menu-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    filter: brightness(0.7);
+    transition: 0.3s;
+}
+
+.menu-item:hover img {
+    filter: brightness(1);
+}
+
+/* TEXTO */
+.menu-item h3 {
+    color: #ff4d6d;
+}
+
+/* ANIMACIÓN */
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MURCIÉLAGOS */
+.bat {
+    position: fixed;
+    font-size: 25px;
+    animation: fly 10s linear infinite;
+    opacity: 0.7;
+}
+
+.bat:nth-child(1) { top: 10%; left: -50px; animation-delay: 0s; }
+.bat:nth-child(2) { top: 40%; left: -100px; animation-delay: 3s; }
+.bat:nth-child(3) { top: 70%; left: -80px; animation-delay: 6s; }
+
+@keyframes fly {
+    from { transform: translateX(0); }
+    to { transform: translateX(120vw); }
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid #660000;
+    background: #1a0000;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- MURCIÉLAGOS -->
+<div class="bat">🦇</div>
+<div class="bat">🦇</div>
+<div class="bat">🦇</div>
+
+<header>
+    <input type="checkbox" id="menu-toggle">
+
+    <label for="menu-toggle">
+        <h1>La Rosa Negra</h1>
+    </label>
+
+    <nav>
+        <a href="#nosotros">Sobre Nosotros</a>
+        <a href="#menu">Menú</a>
+        <a href="#servicios">Servicios</a>
+    </nav>
+</header>
+
+<section id="nosotros">
+    <h2>Sobre Nosotros</h2>
+    <p>
+        La Rosa Negra no es solo un restaurante… es un santuario oculto entre las sombras,
+        donde antiguos vampiros celebraban banquetes eternos bajo la luz de la luna.
+        Sus recetas han sobrevivido generaciones, transmitidas en secreto…
+    </p>
+</section>
+
+<section id="menu">
+    <h2>Menú</h2>
+
+    <div class="menu-grid">
+
+        <div class="menu-item">
+            <img src="https://images.unsplash.com/photo-1604908177522-402ebd1c0c5b">
+            <h3>Ravioles Carmesí</h3>
+            <p>Pasta con salsa de vino oscuro.</p>
+        </div>
+
+        <div class="menu-item">
+            <img src="https://images.unsplash.com/photo-1604908812873-1a0bfa0c3cfd">
+            <h3>Risotto de la Noche</h3>
+            <p>Arroz negro con tinta de calamar.</p>
+        </div>
+
+        <div class="menu-item">
+            <img src="https://images.unsplash.com/photo-1558030006-450675393462">
+            <h3>Costillas Sangrientas</h3>
+            <p>Glaseadas con especias intensas.</p>
+        </div>
+
+        <div class="menu-item">
+            <img src="https://images.unsplash.com/photo-1601972599720-36938d4ecd31">
+            <h3>Corazón de Chocolate</h3>
+            <p>Centro líquido oscuro.</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="servicios">
+    <h2>Servicios</h2>
+    <ul>
+        <li>Cenas temáticas de vampiros</li>
+        <li>Eventos privados nocturnos</li>
+        <li>Experiencia inmersiva</li>
+        <li>Música en vivo gótica</li>
+    </ul>
+</section>
+
+<footer>
+    <p>© 2026 La Rosa Negra</p>
+</footer>
+
+</body>
+</html>
